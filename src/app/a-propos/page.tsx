@@ -13,21 +13,9 @@ const C = {
 }
 
 const TIMELINE = [
-  {
-    company: 'Maurel & Prom',
-    role: 'Fonctions financières et opérationnelles',
-    desc: "Prise en charge de fonctions financières et opérationnelles au sein d'une structure internationale du secteur pétrolier, développant une expertise terrain dans des environnements exigeants.",
-  },
-  {
-    company: 'TotalEnergies',
-    role: 'Pilotage de la performance, contrôle interne',
-    desc: "Développement et mise en œuvre des processus de contrôle interne, pilotage de la performance et structuration des reportings dans un cadre multinational complexe.",
-  },
-  {
-    company: 'Perenco',
-    role: 'Direction de processus financiers critiques, supervision d\'équipes',
-    desc: "Direction de processus financiers critiques et supervision d'équipes dans un contexte de haute responsabilité opérationnelle et organisationnelle.",
-  },
+  'Maurel & Prom',
+  'TotalEnergies',
+  'Perenco',
 ]
 
 const DOMAINES = [
@@ -168,10 +156,9 @@ export default function AProposPage() {
 
             {/* Timeline */}
             <div style={{ display: 'flex', flexDirection: 'column', gap: 0 }}>
-              {TIMELINE.map((item, i) => (
-                <div key={item.company} style={{ display: 'flex', gap: '1.5rem', alignItems: 'stretch' }}>
-                  {/* Step indicator */}
-                  <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', flexShrink: 0, paddingBottom: i < TIMELINE.length - 1 ? '1.5rem' : 0 }}>
+              {TIMELINE.map((company, i) => (
+                <div key={company} style={{ display: 'flex', gap: '1.5rem', alignItems: 'stretch' }}>
+                  <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', flexShrink: 0, paddingBottom: i < TIMELINE.length - 1 ? '1.25rem' : 0 }}>
                     <div style={{
                       width: 44, height: 44, borderRadius: '50%',
                       background: i === 0 ? C.orange : i === 1 ? 'rgba(232,113,26,0.18)' : 'rgba(232,113,26,0.1)',
@@ -187,21 +174,10 @@ export default function AProposPage() {
                     )}
                   </div>
 
-                  {/* Content card */}
-                  <div style={{
-                    background: C.card, border: `1px solid ${C.border}`, borderRadius: 14,
-                    padding: '1.25rem 1.5rem', flex: 1,
-                    marginBottom: i < TIMELINE.length - 1 ? '1.5rem' : 0,
-                  }}>
-                    <div style={{ fontSize: '1rem', fontWeight: 700, color: C.orange, marginBottom: '0.2rem' }}>
-                      {item.company}
-                    </div>
-                    <div className="mono" style={{ fontSize: '0.68rem', color: C.dim, textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '0.75rem' }}>
-                      {item.role}
-                    </div>
-                    <p style={{ fontSize: '0.875rem', color: C.muted, lineHeight: 1.75, margin: 0 }}>
-                      {item.desc}
-                    </p>
+                  <div style={{ display: 'flex', alignItems: 'center', marginBottom: i < TIMELINE.length - 1 ? '1.25rem' : 0 }}>
+                    <span style={{ fontSize: '1.05rem', fontWeight: 700, color: C.text }}>
+                      {company}
+                    </span>
                   </div>
                 </div>
               ))}
