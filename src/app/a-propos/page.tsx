@@ -39,6 +39,37 @@ const DOMAINES = [
   'Valorisation objective des trajectoires professionnelles',
 ]
 
+const SOLUTIONS = [
+  {
+    icon: '◈',
+    nom: 'SmartAuditProcess',
+    desc: "Plateforme d'audit de maturité organisationnelle basée sur le référentiel SAI. 6 modules, scoring automatique, rapport PDF.",
+    href: '/smartauditprocess',
+    dispo: true,
+  },
+  {
+    icon: '◎',
+    nom: 'SmartInvoiceProcess',
+    desc: "Tableau de bord de pilotage du cycle de paiement fournisseurs. 3 vues (global, par département, par fournisseur), analyse des délais, balance âgée, TOP 10 multicritères, suivi multidevise.",
+    href: '#',
+    dispo: false,
+  },
+  {
+    icon: '△',
+    nom: 'ACHILLE',
+    desc: "Infrastructure de données professionnelles et financières. Structurer sa trajectoire, analyser sa rémunération, centraliser ses documents clés, prendre de meilleures décisions.",
+    href: '#',
+    dispo: false,
+  },
+  {
+    icon: '⬡',
+    nom: 'PROCÉDIA',
+    desc: "Solution clé en main de cartographie, rédaction, mise à jour et pilotage des procédures internes. Pour les organisations qui veulent mettre de l'ordre, de la clarté et de la performance dans leurs activités.",
+    href: '#',
+    dispo: false,
+  },
+]
+
 const ACHILLE_OBJECTIFS = [
   'Centraliser les données RH, financières et opérationnelles dans un environnement structuré',
   'Produire des analyses automatisées et des tableaux de bord décisionnels',
@@ -310,6 +341,68 @@ export default function AProposPage() {
                   ))}
                 </div>
               </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ── LES SOLUTIONS NUMÉRIQUES ── */}
+        <section style={{ padding: 'clamp(3rem,5vw,5.5rem) 1.5rem', background: C.bgAlt }}>
+          <div style={{ maxWidth: 1060, margin: '0 auto' }}>
+            <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
+              <p className="section-label">Écosystème numérique</p>
+              <h2 style={{ fontSize: 'clamp(1.5rem, 3vw, 2.25rem)', fontWeight: 700, letterSpacing: '-0.025em', margin: 0 }}>
+                Les solutions numériques
+              </h2>
+            </div>
+
+            <div className="grid-2">
+              {SOLUTIONS.map(s => (
+                <div key={s.nom} style={{
+                  background: C.card,
+                  border: `1px solid ${s.dispo ? C.orange : C.border}`,
+                  borderRadius: 14, padding: '1.75rem',
+                  display: 'flex', flexDirection: 'column', gap: '1rem',
+                  position: 'relative',
+                }}>
+                  {!s.dispo && (
+                    <div style={{
+                      position: 'absolute', top: 14, right: 14,
+                      background: 'rgba(255,255,255,0.05)', border: `1px solid ${C.border}`,
+                      borderRadius: 4, padding: '2px 8px',
+                    }}>
+                      <span className="mono" style={{ fontSize: '0.6rem', color: C.dim, letterSpacing: '0.06em' }}>BIENTÔT</span>
+                    </div>
+                  )}
+                  <div style={{
+                    width: 44, height: 44, borderRadius: 10,
+                    background: s.dispo ? 'rgba(232,113,26,0.12)' : 'rgba(255,255,255,0.04)',
+                    border: `1px solid ${s.dispo ? 'rgba(232,113,26,0.3)' : C.border}`,
+                    display: 'flex', alignItems: 'center', justifyContent: 'center',
+                    fontSize: '1.1rem', color: s.dispo ? C.orange : C.dim,
+                  }}>
+                    {s.icon}
+                  </div>
+                  <div style={{ flex: 1 }}>
+                    <div style={{ fontWeight: 800, fontSize: '1rem', letterSpacing: '-0.015em', marginBottom: '0.5rem', color: s.dispo ? C.text : C.muted }}>
+                      {s.nom}
+                    </div>
+                    <p style={{ fontSize: '0.875rem', color: C.muted, lineHeight: 1.75, margin: 0 }}>{s.desc}</p>
+                  </div>
+                  {s.dispo ? (
+                    <a
+                      href={s.href}
+                      className="btn-primary"
+                      style={{ textAlign: 'center', fontSize: '0.875rem', padding: '0.7rem 1.25rem' }}
+                    >
+                      Accéder →
+                    </a>
+                  ) : (
+                    <div className="mono" style={{ fontSize: '0.7rem', color: C.dim }}>
+                      Disponible prochainement
+                    </div>
+                  )}
+                </div>
+              ))}
             </div>
           </div>
         </section>
