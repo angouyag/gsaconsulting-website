@@ -26,10 +26,30 @@ export default function Navbar() {
     }}>
       <div style={{ maxWidth: 1160, margin: '0 auto', padding: '0 1.5rem', height: 64, display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
 
-        <a href="/" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-          <span style={{ fontWeight: 800, fontSize: '1.1rem', letterSpacing: '-0.02em', color: C.text }}>
-            <span style={{ color: C.orange }}>GSA</span> · Consulting P23
-          </span>
+        <a href="/" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+          <div style={{
+            width: 42, height: 42, borderRadius: 10,
+            background: '#fff', overflow: 'hidden',
+            position: 'relative', flexShrink: 0,
+          }}>
+            <img
+              src="/logo/LOGO.PNG"
+              alt="G-Consulting"
+              style={{
+                position: 'absolute', width: '180%',
+                top: '-4%', left: '50%',
+                transform: 'translateX(-50%)',
+              }}
+            />
+          </div>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
+            <span style={{ fontWeight: 800, fontSize: '1rem', letterSpacing: '-0.025em', color: C.text, lineHeight: 1.15 }}>
+              <span style={{ color: C.orange }}>GSA</span> · Consulting P23
+            </span>
+            <span style={{ fontFamily: "'DM Mono', monospace", fontSize: '0.58rem', color: C.dim, letterSpacing: '0.06em', lineHeight: 1 }}>
+              PERFORMANCE · EXCELLENCE
+            </span>
+          </div>
         </a>
 
         <div className="nav-links-desktop">
