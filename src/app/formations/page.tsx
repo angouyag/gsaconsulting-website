@@ -1,5 +1,11 @@
+import type { Metadata } from 'next'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
+
+export const metadata: Metadata = {
+  title: 'Formations Professionnelles — GSA Consulting P23',
+  description: 'Formation "Devenez Expert en Comptabilité Fournisseurs" — 4 jours animés par Greg Stéphane Angouya. Inter ou intra-entreprise. Formations sur mesure disponibles.',
+}
 
 const C = {
   bg: '#0d0e10', bgAlt: '#0a0b0d', card: '#16181c',

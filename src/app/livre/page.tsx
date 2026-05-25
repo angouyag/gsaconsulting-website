@@ -1,5 +1,11 @@
+import type { Metadata } from 'next'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
+
+export const metadata: Metadata = {
+  title: 'Livre — Devenez Expert en Comptabilité Fournisseurs · GSA Consulting P23',
+  description: 'Le guide complet pour maîtriser le cycle fournisseurs. Méthodologie GSA, cas pratiques concrets. Version numérique 7 500 XAF, version papier 15 000 XAF.',
+}
 
 const C = {
   bg: '#0d0e10', bgAlt: '#0a0b0d', card: '#16181c',

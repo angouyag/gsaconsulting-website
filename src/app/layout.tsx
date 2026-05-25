@@ -2,8 +2,22 @@ import type { Metadata } from 'next'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'GSA Consulting — Performance & Excellence Organisationnelle',
-  description: 'Cabinet de conseil en performance organisationnelle, audit de maturité et formation professionnelle. Basé au Gabon.',
+  title: 'GSA Consulting P23 — Performance & Excellence Organisationnelle',
+  description: 'Cabinet de conseil en performance organisationnelle, audit de maturité et formation professionnelle. Fondé par Greg Stéphane Angouya. Libreville, Gabon.',
+  metadataBase: new URL('https://gsaconsultingp23.com'),
+  openGraph: {
+    title: 'GSA Consulting P23 — Performance & Excellence Organisationnelle',
+    description: 'Cabinet de conseil fondé par Greg Stéphane Angouya. Audit de maturité SAI, formations comptabilité fournisseurs, missions conseil.',
+    url: 'https://gsaconsultingp23.com',
+    siteName: 'GSA Consulting P23',
+    locale: 'fr_FR',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'GSA Consulting P23',
+    description: 'Audit de maturité organisationnelle · Formations · Missions conseil — Gabon & Afrique',
+  },
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
