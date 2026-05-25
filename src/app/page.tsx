@@ -20,6 +20,7 @@ const SOLUTIONS = [
     desc: "Plateforme d'audit de maturité organisationnelle basée sur le référentiel SAI. 6 modules, scoring automatique, rapport PDF prêt pour votre CODIR.",
     price: 'À partir de 250 000 XAF / audit',
     payment: 'Paiement Mobile Money · Virement · Visa',
+    prices: null,
     cta: 'Découvrir la plateforme →',
     href: '/smartauditprocess',
     highlight: true,
@@ -28,8 +29,12 @@ const SOLUTIONS = [
     badge: 'Livre · Disponible',
     title: 'Devenez Expert en\nComptabilité Fournisseurs',
     desc: "Le guide complet pour maîtriser le cycle fournisseurs, de la commande au paiement. Méthodologie GSA, cas pratiques, outils directement applicables.",
-    price: '100 000 XAF',
+    price: null,
     payment: null,
+    prices: [
+      { label: '📖 Version papier', value: '15 000 XAF' },
+      { label: '💻 Version numérique', value: '7 500 XAF' },
+    ],
     cta: 'Obtenir le livre →',
     href: '/livre',
     highlight: false,
@@ -40,6 +45,7 @@ const SOLUTIONS = [
     desc: "Comptabilité fournisseurs, pilotage des achats, performance organisationnelle. Animées par Greg Stéphane Angouya. 4 jours · Inter ou intra-entreprise.",
     price: '100 000 XAF / personne',
     payment: null,
+    prices: null,
     cta: 'Voir le catalogue →',
     href: '/formations',
     highlight: false,
@@ -65,7 +71,7 @@ const PILLARS = [
 ]
 
 const STATS = [
-  { value: '15+', label: "Ans d'expérience en multinationales" },
+  { value: '20+', label: "Ans d'expérience en multinationales" },
   { value: '3',   label: 'Solutions numériques développées' },
   { value: '6',   label: 'Modules SAI couverts' },
   { value: '48h', label: 'Délai de déploiement SmartAuditProcess' },
@@ -234,9 +240,9 @@ export default function Home() {
               Guidés par une exigence d'excellence
             </h2>
             <p style={{ fontSize: '1.05rem', color: C.muted, maxWidth: 640, margin: '0 auto', lineHeight: 1.8 }}>
-              Le nom P23 s'inspire du Psaume 23 — un texte de guidance, d'intégrité et d'abondance.
-              C'est la philosophie qui guide chaque mission de GSA Consulting : conduire nos clients
-              avec méthode vers les résultats qu'ils méritent.
+              GSA Consulting P23 est un cabinet de conseil fondé sur une exigence simple : chaque intervention
+              doit produire un résultat mesurable, durable et immédiatement applicable.
+              Pas de rapports qui dorment. Des capacités qui se développent.
             </p>
           </div>
 
@@ -317,13 +323,26 @@ export default function Home() {
 
                 {/* Price */}
                 <div style={{ borderTop: `1px solid ${C.border}`, paddingTop: '1rem' }}>
-                  <div style={{ fontWeight: 700, fontSize: '1rem', marginBottom: s.payment ? '0.3rem' : '0.875rem' }}>
-                    {s.price}
-                  </div>
-                  {s.payment && (
-                    <div className="mono" style={{ fontSize: '0.68rem', color: C.dim, marginBottom: '0.875rem' }}>
-                      {s.payment}
+                  {s.prices ? (
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem', marginBottom: '0.875rem' }}>
+                      {s.prices.map(p => (
+                        <div key={p.label} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                          <span style={{ fontSize: '0.875rem', color: C.muted }}>{p.label}</span>
+                          <span style={{ fontWeight: 700, fontSize: '0.9rem', color: C.text }}>{p.value}</span>
+                        </div>
+                      ))}
                     </div>
+                  ) : (
+                    <>
+                      <div style={{ fontWeight: 700, fontSize: '1rem', marginBottom: s.payment ? '0.3rem' : '0.875rem' }}>
+                        {s.price}
+                      </div>
+                      {s.payment && (
+                        <div className="mono" style={{ fontSize: '0.68rem', color: C.dim, marginBottom: '0.875rem' }}>
+                          {s.payment}
+                        </div>
+                      )}
+                    </>
                   )}
                   <a href={s.href} className="btn-primary" style={{ width: '100%', fontSize: '0.9rem', padding: '0.8rem 1.25rem' }}>
                     {s.cta}
