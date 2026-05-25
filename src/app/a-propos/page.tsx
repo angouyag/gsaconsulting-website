@@ -70,13 +70,6 @@ const SOLUTIONS = [
   },
 ]
 
-const ACHILLE_OBJECTIFS = [
-  'Centraliser les données RH, financières et opérationnelles dans un environnement structuré',
-  'Produire des analyses automatisées et des tableaux de bord décisionnels',
-  'Identifier les écarts de performance et les zones de risque en temps réel',
-  'Faciliter le pilotage stratégique pour les dirigeants et les équipes de direction',
-  "Réduire le temps consacré à la collecte manuelle de données au profit de l'analyse",
-]
 
 export default function AProposPage() {
   return (
@@ -284,59 +277,6 @@ export default function AProposPage() {
                         <div style={{ width: 5, height: 5, borderRadius: '50%', background: C.orange }} />
                       </div>
                       <span style={{ fontSize: '0.9rem', color: C.muted, lineHeight: 1.55 }}>{d}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* ── ACHILLE ── */}
-        <section style={{ padding: 'clamp(3rem,5vw,5.5rem) 1.5rem' }}>
-          <div style={{ maxWidth: 900, margin: '0 auto' }}>
-            <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: '1rem', marginBottom: '0.5rem' }}>
-              <p className="section-label" style={{ margin: 0 }}>Innovation numérique</p>
-              <span style={{
-                fontFamily: "'DM Mono', monospace",
-                fontSize: '0.65rem', letterSpacing: '0.06em',
-                padding: '0.3rem 0.875rem', borderRadius: 20,
-                background: 'rgba(52,211,153,0.08)', border: '1px solid rgba(52,211,153,0.25)',
-                color: C.green,
-              }}>
-                Bientôt disponible
-              </span>
-            </div>
-            <h2 style={{ fontSize: 'clamp(1.6rem, 3.5vw, 2.5rem)', fontWeight: 700, letterSpacing: '-0.03em', margin: '0 0 1.75rem', lineHeight: 1.12 }}>
-              ACHILLE — Transformer les données<br />en <span style={{ color: C.orange }}>décisions intelligentes</span>
-            </h2>
-
-            <div className="grid-2" style={{ alignItems: 'start', gap: '2.5rem' }}>
-              <div>
-                <p style={{ fontSize: 'clamp(0.9rem, 2vw, 1.05rem)', color: C.muted, lineHeight: 1.85, marginBottom: '1.25rem' }}>
-                  ACHILLE est la solution numérique développée par GSA Consulting P23 pour répondre à un besoin fondamental des organisations africaines : transformer la masse de données disponibles en informations décisionnelles claires, fiables et actionnables.
-                </p>
-                <p style={{ fontSize: 'clamp(0.9rem, 2vw, 1.05rem)', color: C.muted, lineHeight: 1.85 }}>
-                  Conçu pour les dirigeants et les équipes de direction, ACHILLE centralise, structure et analyse les données opérationnelles, financières et RH pour produire des tableaux de bord intelligents en temps réel.
-                </p>
-              </div>
-
-              <div style={{ background: C.card, border: `1px solid ${C.border}`, borderRadius: 14, padding: '1.75rem 2rem' }}>
-                <div className="mono" style={{ fontSize: '0.68rem', color: C.dim, textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '1.25rem' }}>
-                  Objectifs
-                </div>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-                  {ACHILLE_OBJECTIFS.map((o, i) => (
-                    <div key={i} style={{ display: 'flex', gap: '1rem', alignItems: 'flex-start' }}>
-                      <div style={{
-                        fontFamily: "'DM Mono', monospace",
-                        fontSize: '0.65rem', fontWeight: 700,
-                        color: C.orange, flexShrink: 0,
-                        minWidth: 22, marginTop: 2,
-                      }}>
-                        {String(i + 1).padStart(2, '0')}
-                      </div>
-                      <span style={{ fontSize: '0.875rem', color: C.muted, lineHeight: 1.65 }}>{o}</span>
                     </div>
                   ))}
                 </div>
