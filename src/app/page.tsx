@@ -1,5 +1,4 @@
-'use client'
-import { useState } from 'react'
+import Navbar from '@/components/Navbar'
 
 const C = {
   bg: '#0d0e10',
@@ -24,6 +23,7 @@ const SOLUTIONS = [
     cta: 'Découvrir la plateforme →',
     href: '/smartauditprocess',
     highlight: true,
+    soon: false,
   },
   {
     badge: 'Livre · Disponible',
@@ -38,6 +38,7 @@ const SOLUTIONS = [
     cta: 'Obtenir le livre →',
     href: '/livre',
     highlight: false,
+    soon: false,
   },
   {
     badge: 'Présentiel · Disponible',
@@ -49,6 +50,43 @@ const SOLUTIONS = [
     cta: 'Voir le catalogue →',
     href: '/formations',
     highlight: false,
+    soon: false,
+  },
+  {
+    badge: 'SaaS B2B · Bientôt disponible',
+    title: 'SmartInvoiceProcess',
+    desc: "Tableau de bord de pilotage du cycle de paiement fournisseurs. 3 vues (global, par département, par fournisseur), analyse des délais, balance âgée, TOP 10 multicritères, suivi multidevise.",
+    price: null,
+    payment: null,
+    prices: null,
+    cta: null,
+    href: null,
+    highlight: false,
+    soon: true,
+  },
+  {
+    badge: 'Conseil · Disponible',
+    title: 'PROCÉDIA',
+    desc: "Solution clé en main de cartographie, rédaction, mise à jour et pilotage des procédures internes. Pour les organisations qui veulent mettre de l'ordre, de la clarté et de la performance dans leurs activités.",
+    price: null,
+    payment: null,
+    prices: null,
+    cta: 'Nous contacter →',
+    href: '/contact',
+    highlight: false,
+    soon: false,
+  },
+  {
+    badge: 'SaaS B2C/B2B · Bientôt disponible',
+    title: 'ACHILLE',
+    desc: "Plateforme personnelle de structuration de la trajectoire professionnelle et financière. Reconstruire son historique réel, objectiver ses performances, prendre des décisions de carrière mieux argumentées.",
+    price: null,
+    payment: null,
+    prices: null,
+    cta: null,
+    href: null,
+    highlight: false,
+    soon: true,
   },
 ]
 
@@ -99,74 +137,10 @@ const TESTIMONIALS = [
 ]
 
 export default function Home() {
-  const [menuOpen, setMenuOpen] = useState(false)
-
   return (
     <div style={{ minHeight: '100vh', background: C.bg, color: C.text, fontFamily: "'Syne', sans-serif" }}>
 
-      {/* ── NAVBAR ── */}
-      <nav style={{
-        position: 'sticky', top: 0, zIndex: 100,
-        background: 'rgba(13,14,16,0.92)',
-        backdropFilter: 'blur(16px)',
-        borderBottom: `1px solid ${C.border}`,
-      }}>
-        <div style={{ maxWidth: 1160, margin: '0 auto', padding: '0 1.5rem', height: 64, display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-
-          {/* Logo */}
-          <a href="/" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-            <span style={{ fontWeight: 800, fontSize: '1.1rem', letterSpacing: '-0.02em', color: C.text }}>
-              <span style={{ color: C.orange }}>GSA</span> · Consulting P23
-            </span>
-          </a>
-
-          {/* Links desktop */}
-          <div className="nav-links-desktop">
-            <a href="#solutions" className="nav-link">Nos solutions</a>
-            <a href="#expertise" className="nav-link">Notre expertise</a>
-            <a href="/formations" className="nav-link">Formations</a>
-            <a href="/contact" className="nav-link">Contact</a>
-          </div>
-
-          {/* CTA */}
-          <div style={{ display: 'flex', gap: '0.625rem', alignItems: 'center' }}>
-            <a href="/contact" className="btn-primary nav-btn-desktop" style={{ padding: '0.55rem 1.2rem', fontSize: '0.85rem' }}>
-              Parlons de votre projet
-            </a>
-            {/* Mobile menu toggle */}
-            <button
-              onClick={() => setMenuOpen(!menuOpen)}
-              style={{ background: 'none', border: `1px solid ${C.border}`, borderRadius: 6, padding: '0.45rem 0.65rem', cursor: 'pointer', color: C.muted, display: 'flex', flexDirection: 'column', gap: 4 }}
-              className="nav-btn-mobile"
-              aria-label="Menu"
-            >
-              <span style={{ display: 'block', width: 18, height: 1.5, background: C.muted }} />
-              <span style={{ display: 'block', width: 18, height: 1.5, background: C.muted }} />
-              <span style={{ display: 'block', width: 18, height: 1.5, background: C.muted }} />
-            </button>
-          </div>
-        </div>
-
-        {/* Mobile menu */}
-        {menuOpen && (
-          <div style={{ background: C.bgAlt, borderTop: `1px solid ${C.border}`, padding: '1rem 1.5rem', display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-            {[
-              { label: 'Nos solutions', href: '#solutions' },
-              { label: 'Notre expertise', href: '#expertise' },
-              { label: 'Formations', href: '/formations' },
-              { label: 'Contact', href: '/contact' },
-            ].map(l => (
-              <a key={l.label} href={l.href} onClick={() => setMenuOpen(false)}
-                style={{ color: C.muted, textDecoration: 'none', fontSize: '0.95rem', fontWeight: 500 }}>
-                {l.label}
-              </a>
-            ))}
-            <a href="/contact" className="btn-primary" style={{ textAlign: 'center', marginTop: '0.5rem' }}>
-              Parlons de votre projet
-            </a>
-          </div>
-        )}
-      </nav>
+      <Navbar />
 
       {/* ── HERO ── */}
       <section style={{ position: 'relative', overflow: 'hidden', padding: 'clamp(4.5rem,9vw,8rem) 1.5rem clamp(4rem,7vw,6rem)', textAlign: 'center' }}>
@@ -266,7 +240,7 @@ export default function Home() {
           <div style={{ textAlign: 'center', marginBottom: '3.5rem' }}>
             <p className="section-label">Nos solutions</p>
             <h2 style={{ fontSize: 'clamp(1.65rem, 3.5vw, 2.5rem)', fontWeight: 700, letterSpacing: '-0.025em', margin: '0 0 1rem' }}>
-              Trois façons de travailler avec nous
+              Notre écosystème de solutions
             </h2>
             <p style={{ fontSize: '1rem', color: C.muted, margin: 0 }}>
               Du diagnostic à la formation — une offre intégrée pour des organisations performantes.
@@ -321,9 +295,9 @@ export default function Home() {
                 {/* Desc */}
                 <p style={{ fontSize: '0.875rem', color: C.muted, lineHeight: 1.75, margin: 0, flex: 1 }}>{s.desc}</p>
 
-                {/* Price */}
+                {/* Price / CTA */}
                 <div style={{ borderTop: `1px solid ${C.border}`, paddingTop: '1rem' }}>
-                  {s.prices ? (
+                  {s.prices && (
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem', marginBottom: '0.875rem' }}>
                       {s.prices.map(p => (
                         <div key={p.label} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
@@ -332,7 +306,8 @@ export default function Home() {
                         </div>
                       ))}
                     </div>
-                  ) : (
+                  )}
+                  {s.price && (
                     <>
                       <div style={{ fontWeight: 700, fontSize: '1rem', marginBottom: s.payment ? '0.3rem' : '0.875rem' }}>
                         {s.price}
@@ -344,9 +319,15 @@ export default function Home() {
                       )}
                     </>
                   )}
-                  <a href={s.href} className="btn-primary" style={{ width: '100%', fontSize: '0.9rem', padding: '0.8rem 1.25rem' }}>
-                    {s.cta}
-                  </a>
+                  {s.cta && s.href ? (
+                    <a href={s.href} className="btn-primary" style={{ width: '100%', fontSize: '0.9rem', padding: '0.8rem 1.25rem' }}>
+                      {s.cta}
+                    </a>
+                  ) : s.soon ? (
+                    <div className="mono" style={{ fontSize: '0.72rem', color: C.dim, textAlign: 'center', padding: '0.6rem 0' }}>
+                      Disponible prochainement
+                    </div>
+                  ) : null}
                 </div>
               </div>
             ))}

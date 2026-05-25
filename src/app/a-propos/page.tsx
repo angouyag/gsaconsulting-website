@@ -13,9 +13,9 @@ const C = {
 }
 
 const TIMELINE = [
-  'Maurel & Prom',
-  'TotalEnergies',
-  'Perenco',
+  'Maurel & Prom Gabon',
+  'TotalEnergies EP Gabon',
+  'Perenco Oil & Gas Gabon',
 ]
 
 const DOMAINES = [
