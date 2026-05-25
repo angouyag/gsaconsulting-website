@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
+import LivreGallerie from './LivreGallerie'
 
 export const metadata: Metadata = {
   title: 'Livre — Devenez Expert en Comptabilité Fournisseurs · GSA Consulting P23',
@@ -37,27 +38,63 @@ export default function LivrePage() {
       <main style={{ flex: 1 }}>
 
         {/* ── HERO ── */}
-        <section style={{ position: 'relative', overflow: 'hidden', padding: 'clamp(4rem,8vw,7rem) 1.5rem clamp(3rem,5vw,5rem)', textAlign: 'center' }}>
+        <section style={{ position: 'relative', overflow: 'hidden', padding: 'clamp(4rem,8vw,6rem) 1.5rem clamp(3rem,5vw,5rem)' }}>
           <div style={{
-            position: 'absolute', top: '-10%', left: '50%', transform: 'translateX(-50%)',
-            width: 800, height: 600,
-            background: 'radial-gradient(ellipse, rgba(232,113,26,0.09) 0%, transparent 68%)',
+            position: 'absolute', top: '-10%', left: '30%',
+            width: 700, height: 600,
+            background: 'radial-gradient(ellipse, rgba(232,113,26,0.08) 0%, transparent 68%)',
             pointerEvents: 'none',
           }} />
-          <div style={{ maxWidth: 720, margin: '0 auto', position: 'relative' }}>
-            <div className="tag">📖 Livre · Greg Stéphane Angouya</div>
-            <h1 style={{ fontSize: 'clamp(2rem, 5vw, 3.25rem)', fontWeight: 800, letterSpacing: '-0.03em', margin: '0 0 1.25rem', lineHeight: 1.1 }}>
-              Devenez Expert en<br />
-              <span style={{ color: C.orange }}>Comptabilité Fournisseurs</span>
-            </h1>
-            <p style={{ fontSize: 'clamp(0.95rem, 2vw, 1.1rem)', color: C.muted, lineHeight: 1.75, margin: '0 auto 2.5rem', maxWidth: 560 }}>
-              Le guide complet pour maîtriser le cycle fournisseurs, de la commande au paiement.
-              Méthodologie GSA, cas pratiques concrets, outils directement applicables.
-            </p>
-            <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '1rem 2rem', fontFamily: "'DM Mono', monospace", fontSize: '0.73rem', color: C.dim }}>
-              <span><span style={{ color: C.green, marginRight: '0.4rem' }}>✓</span>Cas pratiques inclus</span>
-              <span><span style={{ color: C.green, marginRight: '0.4rem' }}>✓</span>Aucun prérequis</span>
-              <span><span style={{ color: C.green, marginRight: '0.4rem' }}>✓</span>Satisfaction garantie</span>
+          <div style={{ maxWidth: 1060, margin: '0 auto', position: 'relative' }}>
+            <div className="livre-hero">
+
+              {/* Texte */}
+              <div>
+                <div className="tag">📖 Livre · Greg Stéphane Angouya</div>
+                <h1 style={{ fontSize: 'clamp(2rem, 4.5vw, 3.25rem)', fontWeight: 800, letterSpacing: '-0.03em', margin: '0 0 1.25rem', lineHeight: 1.1 }}>
+                  Devenez Expert en<br />
+                  <span style={{ color: C.orange }}>Comptabilité Fournisseurs</span>
+                </h1>
+                <p style={{ fontSize: 'clamp(0.95rem, 1.8vw, 1.05rem)', color: C.muted, lineHeight: 1.8, margin: '0 0 2rem', maxWidth: 480 }}>
+                  Le guide complet pour maîtriser le cycle fournisseurs, de la commande au paiement.
+                  Méthodologie GSA, cas pratiques concrets, outils directement applicables.
+                </p>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.6rem', marginBottom: '2rem' }}>
+                  {['Cas pratiques inclus', 'Aucun prérequis', 'Satisfaction garantie'].map(item => (
+                    <div key={item} style={{ display: 'flex', alignItems: 'center', gap: '0.625rem', fontFamily: "'DM Mono', monospace", fontSize: '0.8rem', color: C.muted }}>
+                      <span style={{ color: C.green, fontSize: '0.9rem' }}>✓</span>{item}
+                    </div>
+                  ))}
+                </div>
+                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.875rem' }}>
+                  <a
+                    href="mailto:contact@gsaconsultingp23.com?subject=Commande%20livre%20num%C3%A9rique%20-%20Devenez%20Expert%20en%20Comptabilit%C3%A9%20Fournisseurs"
+                    className="btn-primary"
+                  >
+                    Version numérique — 7 500 XAF →
+                  </a>
+                  <a
+                    href="mailto:contact@gsaconsultingp23.com?subject=Commande%20livre%20papier%20-%20Devenez%20Expert%20en%20Comptabilit%C3%A9%20Fournisseurs"
+                    className="btn-ghost"
+                  >
+                    Version papier — 15 000 XAF
+                  </a>
+                </div>
+              </div>
+
+              {/* Image */}
+              <div className="livre-hero-img">
+                <img
+                  src="/livre/photo_livre1.jpg"
+                  alt="Devenez Expert en Comptabilité Fournisseurs — le livre"
+                  style={{
+                    width: '100%', display: 'block', borderRadius: 16,
+                    border: '1px solid rgba(232,113,26,0.15)',
+                    boxShadow: '0 24px 64px rgba(0,0,0,0.5), 0 0 0 1px rgba(232,113,26,0.08)',
+                  }}
+                />
+              </div>
+
             </div>
           </div>
         </section>
@@ -88,7 +125,47 @@ export default function LivrePage() {
           </div>
         </section>
 
-        {/* ── DÉTAILS ── */}
+        {/* ── GALERIE ── */}
+        <section style={{ padding: 'clamp(3rem,5vw,5rem) 1.5rem' }}>
+          <div style={{ maxWidth: 860, margin: '0 auto' }}>
+            <div style={{ textAlign: 'center', marginBottom: '2.5rem' }}>
+              <p className="section-label">Galerie</p>
+              <h2 style={{ fontSize: 'clamp(1.5rem, 3vw, 2.25rem)', fontWeight: 700, letterSpacing: '-0.025em', margin: 0 }}>
+                Le livre en images
+              </h2>
+            </div>
+            <LivreGallerie />
+          </div>
+        </section>
+
+        {/* ── VIDÉO ── */}
+        <section style={{ padding: 'clamp(3rem,5vw,5rem) 1.5rem', background: C.bgAlt }}>
+          <div style={{ maxWidth: 860, margin: '0 auto' }}>
+            <div style={{ textAlign: 'center', marginBottom: '2.5rem' }}>
+              <p className="section-label">Présentation</p>
+              <h2 style={{ fontSize: 'clamp(1.5rem, 3vw, 2.25rem)', fontWeight: 700, letterSpacing: '-0.025em', margin: 0 }}>
+                Découvrez le livre en vidéo
+              </h2>
+            </div>
+            <div style={{
+              borderRadius: 16, overflow: 'hidden',
+              border: `1px solid ${C.border}`,
+              boxShadow: '0 20px 60px rgba(0,0,0,0.4)',
+            }}>
+              <video
+                src="/livre/video_livre.mp4"
+                autoPlay
+                muted
+                loop
+                controls
+                playsInline
+                style={{ width: '100%', display: 'block', background: '#000' }}
+              />
+            </div>
+          </div>
+        </section>
+
+        {/* ── POUR QUI ── */}
         <section style={{ padding: 'clamp(3rem,5vw,5rem) 1.5rem' }}>
           <div style={{ maxWidth: 860, margin: '0 auto' }}>
             <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
