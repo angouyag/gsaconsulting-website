@@ -57,7 +57,7 @@ const SOLUTIONS = [
   {
     icon: '△',
     nom: 'ACHILLE',
-    desc: "Infrastructure de données professionnelles et financières. Structurer sa trajectoire, analyser sa rémunération, centraliser ses documents clés, prendre de meilleures décisions.",
+    desc: "Plateforme personnelle de structuration de la trajectoire professionnelle et financière. Reconstruire son historique réel, objectiver ses performances, comprendre sa valeur professionnelle et prendre des décisions de carrière mieux argumentées.",
     href: '#',
     dispo: false,
   },
