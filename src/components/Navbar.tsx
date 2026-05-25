@@ -10,6 +10,7 @@ const C = {
 const LINKS = [
   { label: 'Nos solutions', href: '/#solutions' },
   { label: 'Notre expertise', href: '/#expertise' },
+  { label: 'À propos', href: '/a-propos' },
   { label: 'Formations', href: '/formations' },
   { label: 'Contact', href: '/contact' },
 ]
