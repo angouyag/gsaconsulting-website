@@ -170,18 +170,18 @@ export default function ContactPage() {
 
                   <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1.25rem' }}>
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-                      <label className="checkout-label">Prénom *</label>
+                      <label className="form-label">Prénom *</label>
                       <input
-                        className="checkout-input"
+                        className="form-input"
                         type="text" name="prenom" required
                         placeholder="Greg"
                         value={form.prenom} onChange={handleChange}
                       />
                     </div>
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-                      <label className="checkout-label">Nom *</label>
+                      <label className="form-label">Nom *</label>
                       <input
-                        className="checkout-input"
+                        className="form-input"
                         type="text" name="nom" required
                         placeholder="Angouya"
                         value={form.nom} onChange={handleChange}
@@ -191,18 +191,18 @@ export default function ContactPage() {
 
                   <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1.25rem' }}>
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-                      <label className="checkout-label">Email *</label>
+                      <label className="form-label">Email *</label>
                       <input
-                        className="checkout-input"
+                        className="form-input"
                         type="email" name="email" required
                         placeholder="vous@entreprise.com"
                         value={form.email} onChange={handleChange}
                       />
                     </div>
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-                      <label className="checkout-label">Téléphone</label>
+                      <label className="form-label">Téléphone</label>
                       <input
-                        className="checkout-input"
+                        className="form-input"
                         type="tel" name="tel"
                         placeholder="+241 __ __ __ __"
                         value={form.tel} onChange={handleChange}
@@ -211,9 +211,9 @@ export default function ContactPage() {
                   </div>
 
                   <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-                    <label className="checkout-label">Sujet *</label>
+                    <label className="form-label">Sujet *</label>
                     <select
-                      className="checkout-input"
+                      className="form-input"
                       name="sujet" required
                       value={form.sujet} onChange={handleChange}
                       style={{ cursor: 'pointer' }}
@@ -226,9 +226,9 @@ export default function ContactPage() {
                   </div>
 
                   <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-                    <label className="checkout-label">Message *</label>
+                    <label className="form-label">Message *</label>
                     <textarea
-                      className="checkout-input"
+                      className="form-input"
                       name="message" required
                       rows={5}
                       placeholder="Décrivez votre besoin ou votre projet..."
