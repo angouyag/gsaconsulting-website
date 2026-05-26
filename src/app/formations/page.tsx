@@ -1,10 +1,26 @@
 import type { Metadata } from 'next'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
+import FadeIn from '@/components/FadeIn'
+import Breadcrumb from '@/components/Breadcrumb'
 
 export const metadata: Metadata = {
   title: 'Formations Professionnelles — GSA Consulting P23',
   description: 'Formation "Devenez Expert en Comptabilité Fournisseurs" — 4 jours animés par Greg Stéphane Angouya. Inter ou intra-entreprise. Formations sur mesure disponibles.',
+}
+
+const courseSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Course',
+  name: 'Devenez Expert en Comptabilité Fournisseurs',
+  description: 'Formation professionnelle de 4 jours (28 heures) animée par Greg Stéphane Angouya, expert en performance organisationnelle avec 20+ ans en multinationales.',
+  provider: { '@type': 'Organization', name: 'GSA Consulting P23', url: 'https://gsaconsultingp23.com' },
+  hasCourseInstance: {
+    '@type': 'CourseInstance',
+    courseMode: 'ONSITE',
+    instructor: { '@type': 'Person', name: 'Greg Stéphane Angouya' },
+  },
+  offers: { '@type': 'Offer', price: '100000', priceCurrency: 'XAF', availability: 'https://schema.org/InStock' },
 }
 
 const C = {
@@ -84,7 +100,9 @@ const CREDENTIALS = [
 export default function FormationsPage() {
   return (
     <div style={{ minHeight: '100vh', background: C.bg, color: C.text, fontFamily: "'Syne', sans-serif", display: 'flex', flexDirection: 'column' }}>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(courseSchema) }} />
       <Navbar />
+      <Breadcrumb page="Formations" />
 
       <main style={{ flex: 1 }}>
 
@@ -104,7 +122,7 @@ export default function FormationsPage() {
             </h1>
             <p style={{ fontSize: 'clamp(0.95rem, 2vw, 1.1rem)', color: C.muted, lineHeight: 1.75, margin: '0 auto 2.5rem', maxWidth: 560 }}>
               Des formations conçues pour être immédiatement applicables — pas seulement théoriques.
-              Chaque session est animée par Greg Stéphane Angouya, fort de 20 ans d'expérience terrain en multinationales.
+              Chaque session est animée par Greg Stéphane Angouya, fort de 20 ans d&apos;expérience terrain en multinationales.
             </p>
             <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '1rem 2.5rem', fontFamily: "'DM Mono', monospace", fontSize: '0.73rem', color: C.dim }}>
               {['4 jours intensifs', 'Cas pratiques réels', 'Certification de participation', 'Intra-entreprise disponible'].map(item => (
@@ -115,6 +133,7 @@ export default function FormationsPage() {
         </section>
 
         {/* ── FORMATION PHARE ── */}
+        <FadeIn>
         <section style={{ padding: 'clamp(3rem,5vw,5rem) 1.5rem', background: C.bgAlt }}>
           <div style={{ maxWidth: 1060, margin: '0 auto' }}>
             <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
@@ -144,6 +163,11 @@ export default function FormationsPage() {
                     </div>
                     <div style={{ fontSize: '0.9rem', color: info.label === 'Prix' ? C.orange : C.text, fontWeight: info.label === 'Prix' ? 700 : 400, lineHeight: 1.5 }}>
                       {info.value}
+                      {info.label === 'Prix' && (
+                        <div className="mono" style={{ fontSize: '0.68rem', color: C.orange, fontWeight: 400, marginTop: '0.35rem' }}>
+                          ⚡ 4 places disponibles pour la prochaine session — Juin 2026
+                        </div>
+                      )}
                     </div>
                   </div>
                 ))}
@@ -186,8 +210,10 @@ export default function FormationsPage() {
             </div>
           </div>
         </section>
+        </FadeIn>
 
         {/* ── PROGRAMME JOUR PAR JOUR ── */}
+        <FadeIn>
         <section style={{ padding: 'clamp(3rem,5vw,5rem) 1.5rem' }}>
           <div style={{ maxWidth: 1060, margin: '0 auto' }}>
             <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
@@ -230,8 +256,10 @@ export default function FormationsPage() {
             </div>
           </div>
         </section>
+        </FadeIn>
 
         {/* ── VOTRE FORMATEUR ── */}
+        <FadeIn>
         <section style={{ padding: 'clamp(3rem,5vw,5rem) 1.5rem', background: C.bgAlt }}>
           <div style={{ maxWidth: 1060, margin: '0 auto' }}>
             <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
@@ -268,7 +296,7 @@ export default function FormationsPage() {
                   <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
                     <div style={{ textAlign: 'center', padding: '0.875rem 1.25rem', background: 'rgba(232,113,26,0.06)', border: '1px solid rgba(232,113,26,0.15)', borderRadius: 10 }}>
                       <div style={{ fontSize: '1.5rem', fontWeight: 800, color: C.orange, letterSpacing: '-0.03em' }}>20+</div>
-                      <div className="mono" style={{ fontSize: '0.62rem', color: C.dim, letterSpacing: '0.06em', marginTop: 2 }}>ANS D'EXP.</div>
+                      <div className="mono" style={{ fontSize: '0.62rem', color: C.dim, letterSpacing: '0.06em', marginTop: 2 }}>ANS D&apos;EXP.</div>
                     </div>
                     <div style={{ textAlign: 'center', padding: '0.875rem 1.25rem', background: 'rgba(232,113,26,0.06)', border: '1px solid rgba(232,113,26,0.15)', borderRadius: 10 }}>
                       <div style={{ fontSize: '1.5rem', fontWeight: 800, color: C.orange, letterSpacing: '-0.03em' }}>1</div>
@@ -304,7 +332,7 @@ export default function FormationsPage() {
 
                   <div style={{ marginTop: '1.5rem', padding: '1.25rem', background: 'rgba(232,113,26,0.05)', border: '1px solid rgba(232,113,26,0.15)', borderRadius: 10 }}>
                     <p className="mono" style={{ fontSize: '0.78rem', color: C.muted, lineHeight: 1.75, margin: 0, fontStyle: 'italic' }}>
-                      "Ce qui n'est pas structuré n'existe pas.<br />Ce qui n'est pas mesuré ne s'améliore pas."
+                      &ldquo;Ce qui n&apos;est pas structuré n&apos;existe pas.<br />Ce qui n&apos;est pas mesuré ne s&apos;améliore pas.&rdquo;
                     </p>
                     <span className="mono" style={{ fontSize: '0.65rem', color: C.dim, marginTop: '0.5rem', display: 'block' }}>
                       — Greg Stéphane Angouya
@@ -315,8 +343,10 @@ export default function FormationsPage() {
             </div>
           </div>
         </section>
+        </FadeIn>
 
         {/* ── FORMATIONS SUR MESURE ── */}
+        <FadeIn>
         <section style={{ padding: 'clamp(3rem,5vw,5rem) 1.5rem' }}>
           <div style={{ maxWidth: 860, margin: '0 auto' }}>
             <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
@@ -364,6 +394,7 @@ export default function FormationsPage() {
             </div>
           </div>
         </section>
+        </FadeIn>
 
       </main>
 

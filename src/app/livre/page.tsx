@@ -2,10 +2,26 @@ import type { Metadata } from 'next'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import LivreGallerie from './LivreGallerie'
+import FadeIn from '@/components/FadeIn'
+import Breadcrumb from '@/components/Breadcrumb'
 
 export const metadata: Metadata = {
   title: 'Livre — Devenez Expert en Comptabilité Fournisseurs · GSA Consulting P23',
   description: 'Le guide complet pour maîtriser le cycle fournisseurs. Méthodologie GSA, cas pratiques concrets. Version numérique 7 500 XAF, version papier 15 000 XAF.',
+}
+
+const bookSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Book',
+  name: 'Devenez Expert en Comptabilité Fournisseurs',
+  author: { '@type': 'Person', name: 'Greg Stéphane Angouya' },
+  description: 'Le guide complet pour maîtriser le cycle fournisseurs, de la commande au paiement. Méthodologie GSA, cas pratiques concrets, outils directement applicables.',
+  inLanguage: 'fr',
+  publisher: { '@type': 'Organization', name: 'GSA Consulting P23' },
+  offers: [
+    { '@type': 'Offer', name: 'Version numérique', price: '7500', priceCurrency: 'XAF', availability: 'https://schema.org/InStock' },
+    { '@type': 'Offer', name: 'Version papier', price: '15000', priceCurrency: 'XAF', availability: 'https://schema.org/InStock' },
+  ],
 }
 
 const C = {
@@ -33,7 +49,9 @@ const DETAILS = [
 export default function LivrePage() {
   return (
     <div style={{ minHeight: '100vh', background: C.bg, color: C.text, fontFamily: "'Syne', sans-serif", display: 'flex', flexDirection: 'column' }}>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(bookSchema) }} />
       <Navbar />
+      <Breadcrumb page="Livre" />
 
       <main style={{ flex: 1 }}>
 
@@ -100,6 +118,7 @@ export default function LivrePage() {
         </section>
 
         {/* ── CE QUE VOUS APPRENDREZ ── */}
+        <FadeIn>
         <section style={{ padding: 'clamp(3rem,5vw,5rem) 1.5rem', background: C.bgAlt }}>
           <div style={{ maxWidth: 860, margin: '0 auto' }}>
             <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
@@ -124,8 +143,10 @@ export default function LivrePage() {
             </div>
           </div>
         </section>
+        </FadeIn>
 
         {/* ── GALERIE ── */}
+        <FadeIn>
         <section style={{ padding: 'clamp(3rem,5vw,5rem) 1.5rem' }}>
           <div style={{ maxWidth: 860, margin: '0 auto' }}>
             <div style={{ textAlign: 'center', marginBottom: '2.5rem' }}>
@@ -137,8 +158,10 @@ export default function LivrePage() {
             <LivreGallerie />
           </div>
         </section>
+        </FadeIn>
 
         {/* ── VIDÉO ── */}
+        <FadeIn>
         <section style={{ padding: 'clamp(3rem,5vw,5rem) 1.5rem', background: C.bgAlt }}>
           <div style={{ maxWidth: 860, margin: '0 auto' }}>
             <div style={{ textAlign: 'center', marginBottom: '2.5rem' }}>
@@ -164,8 +187,10 @@ export default function LivrePage() {
             </div>
           </div>
         </section>
+        </FadeIn>
 
         {/* ── POUR QUI ── */}
+        <FadeIn>
         <section style={{ padding: 'clamp(3rem,5vw,5rem) 1.5rem' }}>
           <div style={{ maxWidth: 860, margin: '0 auto' }}>
             <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
@@ -191,8 +216,10 @@ export default function LivrePage() {
             </div>
           </div>
         </section>
+        </FadeIn>
 
         {/* ── PRICING ── */}
+        <FadeIn>
         <section style={{ padding: 'clamp(3rem,5vw,5rem) 1.5rem', background: C.bgAlt }}>
           <div style={{ maxWidth: 760, margin: '0 auto' }}>
             <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
@@ -268,8 +295,10 @@ export default function LivrePage() {
             </div>
           </div>
         </section>
+        </FadeIn>
 
         {/* ── GARANTIE ── */}
+        <FadeIn>
         <section style={{ padding: 'clamp(2.5rem,4vw,4rem) 1.5rem' }}>
           <div style={{ maxWidth: 620, margin: '0 auto', textAlign: 'center' }}>
             <div style={{
@@ -286,6 +315,7 @@ export default function LivrePage() {
             </div>
           </div>
         </section>
+        </FadeIn>
 
       </main>
 

@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import './globals.css'
+import ScrollToTop from '@/components/ScrollToTop'
 
 export const metadata: Metadata = {
   title: 'GSA Consulting P23 — Performance & Excellence Organisationnelle',
@@ -33,6 +34,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body style={{ margin: 0, padding: 0, background: '#0d0e10', fontFamily: "'Syne', sans-serif" }}>
         {children}
+        <ScrollToTop />
       </body>
     </html>
   )

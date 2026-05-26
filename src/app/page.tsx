@@ -1,5 +1,7 @@
 'use client'
 import Navbar from '@/components/Navbar'
+import FadeIn from '@/components/FadeIn'
+import EmailCapture from '@/components/EmailCapture'
 
 const C = {
   bg: '#0d0e10',
@@ -137,9 +139,21 @@ const TESTIMONIALS = [
   },
 ]
 
+const orgSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'GSA Consulting P23',
+  url: 'https://gsaconsultingp23.com',
+  description: 'Cabinet de conseil en performance organisationnelle, audit de maturité et formation professionnelle.',
+  founder: { '@type': 'Person', name: 'Greg Stéphane Angouya' },
+  address: { '@type': 'PostalAddress', addressLocality: 'Libreville', addressCountry: 'GA' },
+  contactPoint: { '@type': 'ContactPoint', telephone: '+241-77-13-38-40', contactType: 'customer service', email: 'contact@gsaconsultingp23.com' },
+}
+
 export default function Home() {
   return (
     <div style={{ minHeight: '100vh', background: C.bg, color: C.text, fontFamily: "'Syne', sans-serif" }}>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }} />
 
       <Navbar />
 
@@ -207,6 +221,7 @@ export default function Home() {
       </section>
 
       {/* ── MISSION ── */}
+      <FadeIn>
       <section style={{ padding: 'clamp(3.5rem,6vw,5.5rem) 1.5rem', background: C.bgAlt }}>
         <div style={{ maxWidth: 1100, margin: '0 auto' }}>
           <div style={{ textAlign: 'center', marginBottom: '3.5rem' }}>
@@ -234,8 +249,10 @@ export default function Home() {
           </div>
         </div>
       </section>
+      </FadeIn>
 
       {/* ── SOLUTIONS ── */}
+      <FadeIn>
       <section id="solutions" style={{ padding: 'clamp(3.5rem,6vw,5.5rem) 1.5rem' }}>
         <div style={{ maxWidth: 1100, margin: '0 auto' }}>
           <div style={{ textAlign: 'center', marginBottom: '3.5rem' }}>
@@ -335,8 +352,10 @@ export default function Home() {
           </div>
         </div>
       </section>
+      </FadeIn>
 
       {/* ── EXPERTISE ── */}
+      <FadeIn>
       <section id="expertise" style={{ padding: 'clamp(3.5rem,6vw,5.5rem) 1.5rem', background: C.bgAlt }}>
         <div style={{ maxWidth: 1100, margin: '0 auto' }}>
           <div style={{ textAlign: 'center', marginBottom: '3.5rem' }}>
@@ -393,8 +412,10 @@ export default function Home() {
           </div>
         </div>
       </section>
+      </FadeIn>
 
       {/* ── TÉMOIGNAGES ── */}
+      <FadeIn>
       <section style={{ padding: 'clamp(3.5rem,6vw,5.5rem) 1.5rem' }}>
         <div style={{ maxWidth: 1000, margin: '0 auto' }}>
           <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
@@ -425,8 +446,10 @@ export default function Home() {
           </div>
         </div>
       </section>
+      </FadeIn>
 
       {/* ── CTA FINAL ── */}
+      <FadeIn>
       <section style={{ padding: 'clamp(4rem,7vw,6.5rem) 1.5rem', background: C.bgAlt, textAlign: 'center', position: 'relative', overflow: 'hidden' }}>
         <div style={{
           position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%,-50%)',
@@ -456,6 +479,7 @@ export default function Home() {
           </div>
         </div>
       </section>
+      </FadeIn>
 
       {/* ── FOOTER ── */}
       <footer style={{ borderTop: `1px solid ${C.border}`, background: C.bg, padding: 'clamp(2.5rem,4vw,3.5rem) 1.5rem 2rem' }}>
@@ -538,6 +562,7 @@ export default function Home() {
         </div>
       </footer>
 
+      <EmailCapture />
     </div>
   )
 }

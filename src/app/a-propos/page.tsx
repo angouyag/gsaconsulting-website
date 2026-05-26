@@ -1,9 +1,22 @@
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
+import FadeIn from '@/components/FadeIn'
+import Breadcrumb from '@/components/Breadcrumb'
 
 export const metadata = {
   title: 'À propos — Greg Stéphane Angouya | GSA Consulting P23',
   description: "Fondateur de GSA Consulting P23, Greg Stéphane Angouya apporte 20+ ans d'expérience en multinationales pétrolières — Maurel & Prom, TotalEnergies, Perenco.",
+}
+
+const personSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Greg Stéphane Angouya',
+  jobTitle: 'Fondateur, GSA Consulting P23',
+  description: 'Expert en performance organisationnelle avec 20+ ans d\'expérience dans des multinationales pétrolières (Maurel & Prom, TotalEnergies, Perenco).',
+  url: 'https://gsaconsultingp23.com/a-propos',
+  worksFor: { '@type': 'Organization', name: 'GSA Consulting P23', url: 'https://gsaconsultingp23.com' },
+  knowsAbout: ['Performance organisationnelle', 'Comptabilité fournisseurs', 'Audit de maturité SAI', 'Formation professionnelle'],
 }
 
 const C = {
@@ -62,7 +75,9 @@ const SOLUTIONS = [
 export default function AProposPage() {
   return (
     <div style={{ minHeight: '100vh', background: C.bg, color: C.text, fontFamily: "'Syne', sans-serif", display: 'flex', flexDirection: 'column' }}>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }} />
       <Navbar />
+      <Breadcrumb page="À propos" />
 
       <main style={{ flex: 1 }}>
 
@@ -144,6 +159,7 @@ export default function AProposPage() {
         </section>
 
         {/* ── LE PARCOURS ── */}
+        <FadeIn>
         <section style={{ padding: 'clamp(3rem,5vw,5.5rem) 1.5rem', background: C.bgAlt }}>
           <div style={{ maxWidth: 860, margin: '0 auto' }}>
             <p className="section-label">Parcours professionnel</p>
@@ -184,8 +200,10 @@ export default function AProposPage() {
             </div>
           </div>
         </section>
+        </FadeIn>
 
         {/* ── LA CONVICTION ── */}
+        <FadeIn>
         <section style={{ padding: 'clamp(3rem,5vw,5.5rem) 1.5rem' }}>
           <div style={{ maxWidth: 800, margin: '0 auto' }}>
             <p className="section-label">La conviction</p>
@@ -219,8 +237,10 @@ export default function AProposPage() {
             </div>
           </div>
         </section>
+        </FadeIn>
 
         {/* ── GSA CONSULTING P23 ── */}
+        <FadeIn>
         <section style={{ padding: 'clamp(3rem,5vw,5.5rem) 1.5rem', background: C.bgAlt }}>
           <div style={{ maxWidth: 900, margin: '0 auto' }}>
             <div className="grid-2" style={{ alignItems: 'start', gap: '2.5rem' }}>
@@ -260,8 +280,10 @@ export default function AProposPage() {
             </div>
           </div>
         </section>
+        </FadeIn>
 
         {/* ── LES SOLUTIONS NUMÉRIQUES ── */}
+        <FadeIn>
         <section style={{ padding: 'clamp(3rem,5vw,5.5rem) 1.5rem', background: C.bgAlt }}>
           <div style={{ maxWidth: 1060, margin: '0 auto' }}>
             <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
@@ -322,8 +344,10 @@ export default function AProposPage() {
             </div>
           </div>
         </section>
+        </FadeIn>
 
         {/* ── LE LIVRE ── */}
+        <FadeIn>
         <section style={{ padding: 'clamp(2.5rem,4vw,4rem) 1.5rem', background: C.bgAlt }}>
           <div style={{ maxWidth: 780, margin: '0 auto' }}>
             <div style={{
@@ -365,8 +389,10 @@ export default function AProposPage() {
             </div>
           </div>
         </section>
+        </FadeIn>
 
         {/* ── CTA FINAL ── */}
+        <FadeIn>
         <section style={{ padding: 'clamp(4rem,6vw,6.5rem) 1.5rem', textAlign: 'center' }}>
           <div style={{ maxWidth: 600, margin: '0 auto' }}>
             <div className="tag">✦ Collaboration</div>
@@ -392,6 +418,7 @@ export default function AProposPage() {
             </div>
           </div>
         </section>
+        </FadeIn>
 
       </main>
 
